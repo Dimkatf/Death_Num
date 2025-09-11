@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fiftyfifty">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card1FiftyFifty"
+        android:layout_width="140dp"
+        android:layout_height="218dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="216dp"
+        android:text="Death num"
+        android:textColor="@color/color_white"
+        android:textSize="35sp"
+        android:textStyle="italic"
+        app:backgroundTint="@color/color_red"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card2FiftyFifty"
+        android:layout_width="140dp"
+        android:layout_height="218dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="216dp"
+        android:text="Death num"
+        android:textColor="@color/color_white"
+        android:textSize="34sp"
+        app:backgroundTint="@color/color_blue"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/exitFiftyfifty"
+        android:layout_width="250sp"
+        android:layout_height="60sp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="652dp"
+        android:backgroundTint="@color/color_black"
+        android:text="Выйти"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/countFiftyFifty"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="44dp"
+        android:text="Очки: "
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

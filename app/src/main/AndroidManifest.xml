@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/play_store_512"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/play_store_512"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DeathNum"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       <activity android:name=".OnePlayerActivity"></activity>
+        <activity android:name=".TwoPlayerActivity"></activity>
+        <activity android:name=".SuperGameActivity"></activity>
+        <activity android:name=".StatistikActivity"></activity>
+        <activity android:name=".LoseScreenOnePlayer"></activity>
+        <activity android:name=".SuperGameActivity2"></activity>
+        <activity android:name=".SuperGameActivity3"></activity>
+        <activity android:name=".SuperGameActivity4"></activity>
+        <activity android:name=".SuperGameActivity5"></activity>
+        <activity android:name=".GameOverSuperGame"></activity>
+        <activity android:name=".RulesActivity"></activity>
+        <activity android:name=".TwoPlayer2Activity"></activity>
+        <activity android:name=".GameOverTwoPlayers"></activity>
+        <activity android:name=".FiftyFiftyGame"></activity>
+        <activity android:name=".FiftyFiftyGameOver"></activity>
+    </application>
+
+
+</manifest>

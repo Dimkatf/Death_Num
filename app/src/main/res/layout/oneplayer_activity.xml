@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/one"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cardimage">
+
+    <TextView
+        android:id="@+id/deathNumText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card Grid Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/countOne"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deathNumText">
+
+        <!-- Row 1 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card1One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_blue"
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:background="@drawable/cardimage"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card5One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card2One"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card2One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card6One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card3One"
+            app:layout_constraintStart_toEndOf="@+id/card1One"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card3One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card7One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card4One"
+            app:layout_constraintStart_toEndOf="@+id/card2One"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card4One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card8One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card3One"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Row 2 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card5One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card9One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card6One"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card1One" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card6One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card10One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card7One"
+            app:layout_constraintStart_toEndOf="@+id/card5One"
+            app:layout_constraintTop_toBottomOf="@+id/card2One" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card7One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card11One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card8One"
+            app:layout_constraintStart_toEndOf="@+id/card6One"
+            app:layout_constraintTop_toBottomOf="@+id/card3One" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card8One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/card12One"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card7One"
+            app:layout_constraintTop_toBottomOf="@+id/card4One" />
+
+        <!-- Row 3 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card9One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card10One"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card5One" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card10One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card11One"
+            app:layout_constraintStart_toEndOf="@+id/card9One"
+            app:layout_constraintTop_toBottomOf="@+id/card6One" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card11One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toStartOf="@+id/card12One"
+            app:layout_constraintStart_toEndOf="@+id/card10One"
+            app:layout_constraintTop_toBottomOf="@+id/card7One" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/card12One"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Death num"
+            android:textColor="@color/color_black"
+            android:textSize="15sp"
+            app:backgroundTint="#FFFF00"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,8:13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card11One"
+            app:layout_constraintTop_toBottomOf="@+id/card8One" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Bottom Section -->
+    <TextView
+        android:id="@+id/countOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Количество баллов: "
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/exitOnePl"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/exitOnePl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/color_red"
+        android:text="Выйти"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

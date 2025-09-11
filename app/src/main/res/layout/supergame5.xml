@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/supergame_5">
+
+    <TextView
+        android:id="@+id/deathNumTextforSuper5"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="72dp"
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Round5"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="28dp"
+        android:text="Раунд 5"
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/deathNumText5"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="136dp"
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/countSuper5"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="552dp"
+        android:text="Количество баллов: "
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+
+    <Button
+        android:id="@+id/gameOver5"
+        android:layout_width="200sp"
+        android:layout_height="45sp"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="208dp"
+        android:backgroundTint="@color/color_gray"
+        android:text="Завершить игру"
+        android:textColor="@color/color_black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/exitSuper5"
+        android:layout_width="250sp"
+        android:layout_height="60sp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="652dp"
+        android:backgroundTint="@color/color_red"
+        android:text="Выйти"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card1Super5"
+        android:layout_width="80sp"
+        android:layout_height="130sp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="300dp"
+        android:text="Death num"
+        android:textColor="@color/color_blue"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:backgroundTint="#FFFF00"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card2Super5"
+        android:layout_width="80sp"
+        android:layout_height="130sp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="300dp"
+        android:text="Death num"
+        android:textColor="@color/color_black"
+        android:textSize="11sp"
+        app:backgroundTint="#FFFF00"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

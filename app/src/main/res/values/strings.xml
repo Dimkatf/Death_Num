@@ -1,0 +1,15 @@
+<resources>
+        <string name="app_name">Death Num</string>
+        <string name="death_num">Death num</string>
+        <string name="language_choice">Выбор языка</string>
+        <string name="single_player">Одиночная игра</string>
+        <string name="two_players">Два игрока</string>
+        <string name="super_game">Суперигра</string>
+        <string name="exit">Выйти</string>
+        <string name="rules">Правила</string>
+        <string name="statistics">Статистика</string>
+        <string name="russian">Русский</string>
+        <string name="english">English</string>
+        <string name="fiftyfifty">50 на 50</string>
+        <string name="death_numone">Смертельное число</string>
+    </resources>

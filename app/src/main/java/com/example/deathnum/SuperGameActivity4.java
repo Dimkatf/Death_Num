@@ -1,0 +1,157 @@
+package com.example.deathnum;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.TypedValue;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.example.deathnum.database.StatsDatabaseManager;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class SuperGameActivity4 extends AppCompatActivity {
+    private int deathNumSuper4;
+    StatsDatabaseManager dbManager;
+    private Random random = new Random();
+    private TextView deathNumText4;
+    private Button nextRound4;
+    private static final int COUNT_CARDS = 4;
+    private static final int POINTS = 4;
+    private TextView countTextSuper4;
+    private Button gameOver4Btn;
+    private ArrayList<Integer> numsSuper4 = new ArrayList<>();
+    private int currentScore = 0;
+    Time time = new Time();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.supergame4);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.supergame_4), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        deathNumSuper4 = random.nextInt(COUNT_CARDS)+1;
+
+        App app = (App) getApplication();
+
+        gameOver4Btn = findViewById(R.id.gameOverSuper4);
+        gameOver4Btn.setOnClickListener(v -> {
+            Intent intent = new Intent(SuperGameActivity4.this, GameOverSuperGame.class);
+            startActivity(intent);
+            finish();
+        });
+
+        nextRound4 = findViewById(R.id.nextRound4);
+        nextRound4.setEnabled(false);
+        nextRound4.setOnClickListener(v -> {
+            Intent intent = new Intent(SuperGameActivity4.this, SuperGameActivity5.class);
+            startActivity(intent);
+            finish();
+        });
+
+        deathNumText4 = findViewById(R.id.deathNumTextforSuper4);
+        deathNumText4.setText("Смертельное число: " + deathNumSuper4);
+
+        //countSuper4 = SuperGameActivity3.countSuper3;
+
+        countTextSuper4 = findViewById(R.id.countSuper4);
+        countTextSuper4.setText("Количество баллов: " + app.getGlobalcount());
+
+        Button card1Super4 = findViewById(R.id.card1Super4);
+        Button card2Super4 = findViewById(R.id.card2Super4);
+        Button card3Super4 = findViewById(R.id.card3Super4);
+        Button card4Super4 = findViewById(R.id.card4Super4);
+
+
+        numsSuper4.add(1); numsSuper4.add(2);
+        numsSuper4.add(3);numsSuper4.add(4);
+
+        int randIndex1Super4 = random.nextInt(numsSuper4.size());
+        int num1Super4 = numsSuper4.get(randIndex1Super4);
+        numsSuper4.remove(randIndex1Super4);
+
+        int randIndex2Super4 = random.nextInt(numsSuper4.size());
+        int num2Super4 = numsSuper4.get(randIndex2Super4);
+        numsSuper4.remove(randIndex2Super4);
+
+        int randIndex3Super4 = random.nextInt(numsSuper4.size());
+        int num3Super4 = numsSuper4.get(randIndex3Super4);
+        numsSuper4.remove(randIndex3Super4);
+
+        int randIndex4Super4 = random.nextInt(numsSuper4.size());
+        int num4Super4 = numsSuper4.get(randIndex4Super4);
+        numsSuper4.remove(randIndex4Super4);
+
+
+
+        card1Super4.setOnClickListener(v -> {
+            time.time(800l);
+            activateNextRound(num1Super4);
+            score(num1Super4);
+            card1Super4.setEnabled(false);
+            card1Super4.setText(String.valueOf(num1Super4));
+            card1Super4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+
+        });
+        card2Super4.setOnClickListener(v -> {
+            time.time(800l);
+            activateNextRound(num2Super4);
+            score(num2Super4);
+            card2Super4.setEnabled(false);
+            card2Super4.setText(String.valueOf(num2Super4));
+            card2Super4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+
+        });
+        card3Super4.setOnClickListener(v -> {
+            time.time(800l);
+            activateNextRound(num3Super4);
+            score(num3Super4);
+            card3Super4.setEnabled(false);
+            card3Super4.setText(String.valueOf(num3Super4));
+            card3Super4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+
+        });
+        card4Super4.setOnClickListener(v -> {
+            time.time(800l);
+            activateNextRound(num4Super4);
+            score(num4Super4);
+            card4Super4.setEnabled(false);
+            card4Super4.setText(String.valueOf(num4Super4));
+            card4Super4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+
+        });
+
+
+
+    }
+    private void score(int numSuper4){
+        App app = (App) getApplication();
+        if(numSuper4 != deathNumSuper4) {
+            app.setGlobalcount(app.getGlobalcount()+ POINTS);
+            countTextSuper4.setText("Количество баллов: " + app.getGlobalcount());
+        }
+        else {
+            app.setGlobalcount(0);
+            countTextSuper4.setText("Количество баллов: " + app.getGlobalcount());
+            Intent intent = new Intent(SuperGameActivity4.this, GameOverSuperGame.class);
+            startActivity(intent);
+        }
+    }
+    private void activateNextRound(int num){
+        if(num != deathNumSuper4){
+            nextRound4.setEnabled(true);
+            nextRound4.setBackgroundColor(Color.GREEN);
+        }
+    }
+}

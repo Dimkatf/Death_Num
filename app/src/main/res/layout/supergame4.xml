@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/supergame_4">
+
+    <TextView
+        android:id="@+id/deathNumTextforSuper4"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/Round4"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="36dp"
+        android:text="Раунд 4"
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/deathNumText4"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="152dp"
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/countSuper4"
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="552dp"
+        android:text="Количество баллов: "
+        android:textColor="@color/color_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/nextRound4"
+        android:layout_width="200sp"
+        android:layout_height="45sp"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="@color/color_gray"
+        android:text="Следующий раунд"
+        android:textColor="@color/color_black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/exitSuper4"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="652dp"
+        android:backgroundTint="@color/color_red"
+        android:text="Выйти"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/gameOverSuper4"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="652dp"
+        android:backgroundTint="@color/color_black"
+        android:text="Завершить игру"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card1Super4"
+        android:layout_width="80sp"
+        android:layout_height="130sp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="224dp"
+        android:text="Death num"
+        android:textColor="@color/color_blue"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:backgroundTint="#FFFF00"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card2Super4"
+        android:layout_width="80sp"
+        android:layout_height="130sp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="224dp"
+        android:text="Death num"
+        android:textColor="@color/color_black"
+        android:textSize="11sp"
+        app:backgroundTint="#FFFF00"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card3Super4"
+        android:layout_width="80sp"
+        android:layout_height="130sp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="376dp"
+        android:text="Death num"
+        android:textColor="@color/color_black"
+        android:textSize="11sp"
+        app:backgroundTint="#FFFF00"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/card4Super4"
+        android:layout_width="80sp"
+        android:layout_height="130sp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="376dp"
+        android:text="Death num"
+        android:textColor="@color/color_black"
+        android:textSize="11sp"
+        app:backgroundTint="#FFFF00"
+        app:cornerRadius="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
