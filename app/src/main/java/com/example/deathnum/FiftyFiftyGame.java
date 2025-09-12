@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class FiftyFiftyGame extends AppCompatActivity {
+public class FiftyFiftyGame extends BaseActivity {
     StatsDatabaseManager dbManager;
     public static int countFifty;
     public Button card1Fifty;
@@ -40,7 +40,7 @@ public class FiftyFiftyGame extends AppCompatActivity {
         exit.setOnClickListener(v -> finish());
         countFifty = 0;
         TextView countfiftyTextView = findViewById(R.id.countFiftyFifty);
-        countfiftyTextView.setText("Очки: " + countFifty);
+        countfiftyTextView.setText(getString(R.string.pointsFiftyFifty) + " " +countFifty);
 
         dbManager = new StatsDatabaseManager(this);
         dbManager.open();
@@ -93,7 +93,7 @@ public class FiftyFiftyGame extends AppCompatActivity {
             if (cards.get(cardIndex) == "✅") {
                 countFifty++;
                 TextView countfiftyTextView = findViewById(R.id.countFiftyFifty);
-                countfiftyTextView.setText("Очки: " + countFifty);
+                countfiftyTextView.setText(getString(R.string.pointsFiftyFifty) + " " +countFifty);
                 card1Fifty.postDelayed(this::setupNewRound, 2000);
             }
             else {

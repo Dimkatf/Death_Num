@@ -12,4 +12,13 @@
     <string name="english">English</string>
     <string name="fiftyfifty">Fifty-fifty</string>
     <string name="death_numone">Death num</string>
+    <string name="game_over">Game Over!</string>
+    <string name="final_score">Final Score:</string>
+    <string name="see_results">See Results</string>
+    <string name="exit_go">Exit</string>
+    <string name="deathnumOnepl">Death num: </string>
+    <string name="PointsOnePl">Points: </string>
+    <string name="exitOnePl">Exit</string>
+    <string name="pointsFiftyFifty">Points: </string>
+    <string name="exitFiftyFifty">Exit</string>
 </resources>

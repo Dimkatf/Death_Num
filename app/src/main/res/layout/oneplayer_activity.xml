@@ -9,6 +9,7 @@
     android:background="@drawable/cardimage">
 
     <TextView
+        android:text="@string/deathnumOnepl"
         android:id="@+id/deathNumText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -244,7 +245,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
-        android:text="Количество баллов: "
+        android:text="@string/PointsOnePl"
         android:textColor="@color/color_black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -259,7 +260,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/color_red"
-        android:text="Выйти"
+        android:text="@string/exitOnePl"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

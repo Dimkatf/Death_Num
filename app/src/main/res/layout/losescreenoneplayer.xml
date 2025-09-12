@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
         android:layout_marginTop="52dp"
-        android:text="Игра завершена!"
+        android:text="@string/game_over"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,12 +23,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginTop="188dp"
-        android:text="Итоговое количество баллов: "
+        android:text="@string/final_score"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </TextView>
+
     <Button
         android:id="@+id/seeResult"
         android:layout_width="250sp"
@@ -36,12 +37,11 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="568dp"
         android:backgroundTint="@color/color_red"
-        android:text="Посмотреть результаты"
+        android:text="@string/see_results"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/countForGameOver"
@@ -56,6 +56,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
     <Button
         android:id="@+id/exitBtnOnePlayer"
         android:layout_width="250sp"
@@ -63,7 +64,7 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="652dp"
         android:backgroundTint="@color/color_orange"
-        android:text="Выйти"
+        android:text="@string/exit"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

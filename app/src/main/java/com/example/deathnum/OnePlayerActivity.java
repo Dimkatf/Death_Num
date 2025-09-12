@@ -22,7 +22,7 @@ import java.util.Random;
 import com.example.deathnum.database.DatabaseConstants;
 import com.example.deathnum.database.StatsDatabaseManager;
 
-public class OnePlayerActivity extends AppCompatActivity {
+public class OnePlayerActivity extends BaseActivity{
 
     StatsDatabaseManager dbManager;
     private Random random = new Random();
@@ -32,32 +32,17 @@ public class OnePlayerActivity extends AppCompatActivity {
     private TextView countTextview;
     private static final int COUNT_CARDS = 12;
     private ArrayList<Integer> nums = new ArrayList<>();
-    private int num1;
-    private int num2;
-    private int num3;
-    private int num4;
-    private int num5;
-    private int num6;
-    private int num7;
-    private int num8;
-    private int num9;
-    private int num10;
-    private int num11;
-    private int num12;
+    private int num1; private int num2;
+    private int num3; private int num4;
+    private int num5; private int num6; private int num7;
+    private int num8; private int num9; private int num10;
+    private int num11; private int num12;
 
     Time time = new Time();
-    Button card1;
-    Button card2;
-    Button card3;
-    Button card4;
-    Button card5;
-    Button card6;
-    Button card7;
-    Button card8;
-    Button card9;
-    Button card10;
-    Button card11;
-    Button card12;
+    Button card1;Button card2;Button card3;
+    Button card4;Button card5;Button card6;
+    Button card7;Button card8;Button card9;
+    Button card10;Button card11;Button card12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,10 +119,10 @@ public class OnePlayerActivity extends AppCompatActivity {
         count = 0;
         deathNum = random.nextInt(COUNT_CARDS) + 1;
         deathNumText = findViewById(R.id.deathNumText);
-        deathNumText.setText("Смертельное число: " + deathNum);
+        deathNumText.setText(getString(R.string.deathnumOnepl) + " " + deathNum);
 
         countTextview = findViewById(R.id.countOne);
-        countTextview.setText("Количество баллов: " + count);
+        countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
 
         card1 = findViewById(R.id.card1One);
         card2 = findViewById(R.id.card2One);
@@ -257,11 +242,11 @@ public class OnePlayerActivity extends AppCompatActivity {
             time.time(2000L);
             if (num == deathNum) {
                 count = 13;
-                countTextview.setText("Количество баллов: " + count);
+                countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
                 loseScreen();
             } else {
                 count -= 1;
-                countTextview.setText("Количество баллов: " + count);
+                countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
                 loseScreen();
             }
             onDismiss.run();
@@ -272,7 +257,7 @@ public class OnePlayerActivity extends AppCompatActivity {
             time.time(2000L);
             if (num != deathNum) {
                 count += 1;
-                countTextview.setText("Количество баллов: " + count);
+                countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
                 setAllCardsEnabled(true);
             } else {
                 loseScreen();

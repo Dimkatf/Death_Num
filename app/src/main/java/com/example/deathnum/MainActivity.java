@@ -18,9 +18,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private Spinner languageSpinner;
-    App app = (App) getApplication();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +32,22 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
         languageSpinner = findViewById(R.id.languageSpinner);
-        languageSpinner.setSelection(0);
+
+        // Устанавливаем правильную позицию спиннера based on current language
+        if (App.getLanguage().equals("en")) {
+            languageSpinner.setSelection(1);
+        } else {
+            languageSpinner.setSelection(0);
+        }
 
         languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1)
-                    setLocale("en");
-                else setLocale("ru");
+                String selectedLang = (position == 1) ? "en" : "ru";
+                if (!selectedLang.equals(App.getLanguage())) {
+                    setLocale(selectedLang);
+                }
             }
 
             @Override
@@ -97,34 +102,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setLocale(String lang) {
-        Locale locale = new Locale(lang);
-        Locale.setDefault(locale);
-
-        Resources res = getResources();
-        Configuration config = res.getConfiguration();
-        config.setLocale(locale);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            config.setLayoutDirection(locale);
-            createConfigurationContext(config);
-        }
-
-        res.updateConfiguration(config, res.getDisplayMetrics());
-        updateUI();
+        App.setLanguage(lang);
+        recreate(); // Перезагружаем активность для применения языка
     }
 
     private void updateUI() {
-        ((Button)findViewById(R.id.onePlayerBtn)).setText(R.string.single_player);
-        ((Button)findViewById(R.id.twoPlayerBtn)).setText(R.string.two_players);
-        ((Button)findViewById(R.id.superGameBtn)).setText(R.string.super_game);
-        ((Button)findViewById(R.id.exit)).setText(R.string.exit);
-        ((Button)findViewById(R.id.rulesBtn)).setText(R.string.rules);
-        ((Button)findViewById(R.id.statisticsBtn)).setText(R.string.statistics);
-        ((Button)findViewById(R.id.fiftyfiftyGameBtn)).setText(R.string.fiftyfifty);
+        Button onePlayer = findViewById(R.id.onePlayerBtn);
+        Button twoPlayer = findViewById(R.id.twoPlayerBtn);
+        Button superGame = findViewById(R.id.superGameBtn);
+        Button exit = findViewById(R.id.exit);
+        Button rules = findViewById(R.id.rulesBtn);
+        Button statistics = findViewById(R.id.statisticsBtn);
+        Button fiftyfifty = findViewById(R.id.fiftyfiftyGameBtn);
 
-        //((Button)findViewById(R.id.deathNumText)).setText(R.string.death_numone);
+        onePlayer.setText(R.string.single_player);
+        twoPlayer.setText(R.string.two_players);
+        superGame.setText(R.string.super_game);
+        exit.setText(R.string.exit);
+        rules.setText(R.string.rules);
+        statistics.setText(R.string.statistics);
+        fiftyfifty.setText(R.string.fiftyfifty);
+    }
 
-        // Обновляем другие текстовые элементы, если они есть
-        //((TextView)findViewById(R.id.textView)).setText(R.string.some_text);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Обновляем UI при возвращении на активность
+        updateUI();
+
+        // Обновляем позицию спиннера на случай, если язык изменился в другой активности
+        if (App.getLanguage().equals("en")) {
+            languageSpinner.setSelection(1);
+        } else {
+            languageSpinner.setSelection(0);
+        }
     }
 }
