@@ -103,7 +103,13 @@ public class MainActivity extends BaseActivity {
 
     private void setLocale(String lang) {
         App.setLanguage(lang);
-        recreate(); // Перезагружаем активность для применения языка
+        getSharedPreferences("app_prefs", MODE_PRIVATE)
+                .edit()
+                .putString("selected_language", lang)
+                .apply();
+
+        updateUI();
+        recreate();
     }
 
     private void updateUI() {
@@ -127,10 +133,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Обновляем UI при возвращении на активность
         updateUI();
 
-        // Обновляем позицию спиннера на случай, если язык изменился в другой активности
         if (App.getLanguage().equals("en")) {
             languageSpinner.setSelection(1);
         } else {

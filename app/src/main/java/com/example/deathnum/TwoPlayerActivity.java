@@ -54,7 +54,7 @@ public class TwoPlayerActivity extends AppCompatActivity {
         countTextviewTwo1 = findViewById(R.id.countTwo1);
 
         countTwo1 = 0;
-        countTextviewTwo1.setText("Количество баллов: " + countTwo1);
+        countTextviewTwo1.setText(getString(R.string.deathnumTwopl1) + " " + countTwo1);
         showNumberInputDialog();
         Button exit = findViewById(R.id.exitTwoPl1);
         exit.setOnClickListener(v -> finish());
@@ -230,7 +230,7 @@ public class TwoPlayerActivity extends AppCompatActivity {
                     try {
                         death_num1 = Integer.parseInt(inputText);
                         if (death_num1 >= 1 && death_num1 <= 12) {
-                            deathNumTextTwo1.setText("Смертельное число: " + death_num1);
+                            deathNumTextTwo1.setText(getString(R.string.deathnumTwopl1) + " " + death_num1);
                         } else {
                             Toast.makeText(TwoPlayerActivity.this,
                                     "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
@@ -272,11 +272,11 @@ public class TwoPlayerActivity extends AppCompatActivity {
            time.time(2000l);
             if (num == death_num1) {
                 countTwo1 = 13;
-                countTextviewTwo1.setText("Количество баллов: " + countTwo1);
+                countTextviewTwo1.setText(getString(R.string.PointsTwoPl1)+ countTwo1);
                 loseScreen();
             } else {
                 countTwo1 -= 1;
-                countTextviewTwo1.setText("Количество баллов: " + countTwo1);
+                countTextviewTwo1.setText(getString(R.string.PointsTwoPl1)+ countTwo1);
                 loseScreen();
             }
             onDissmiss.run();
@@ -287,7 +287,7 @@ public class TwoPlayerActivity extends AppCompatActivity {
             time.time(2000l);
             if (num != death_num1) {
                 countTwo1 += 1;
-                countTextviewTwo1.setText("Количество баллов: " + countTwo1);
+                countTextviewTwo1.setText(getString(R.string.PointsTwoPl1)+ countTwo1);
             } else loseScreen();
             onDissmiss.run();
         });

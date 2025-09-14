@@ -12,7 +12,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Это смертельная карта?"
+        android:text="@string/Alertbuil"
         android:textColor="@color/color_black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -32,13 +32,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:backgroundTint="@color/color_lime"
-            android:text="Да" />
+            android:text="@string/yes" />
 
         <Button
             android:id="@+id/btn_no"
             android:layout_width="150sp"
             android:layout_height="wrap_content"
-            android:text="Нет"
+            android:text="@string/no"
             android:backgroundTint="@color/color_red"/>
     </LinearLayout>
 </LinearLayout>

@@ -21,9 +21,17 @@ public class RulesActivity extends AppCompatActivity {
         exit.setOnClickListener(v -> finish());
     }
 
+    private String getSelectedLanguage() {
+        return getSharedPreferences("app_prefs", MODE_PRIVATE)
+                .getString("selected_language", "ru"); // По умолчанию русский
+    }
+
     private String loadTextFromFile() {
+        String language = getSelectedLanguage();
+        String filename = language.equals("en") ? "rules-en.txt" : "rules.txt"; // Измените имя файла
+
         try {
-            InputStream is = getAssets().open("rules.txt");
+            InputStream is = getAssets().open(filename);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

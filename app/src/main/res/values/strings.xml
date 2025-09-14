@@ -21,4 +21,13 @@
         <string name="exitOnePl">Выйти</string>
         <string name="pointsFiftyFifty">Очки: </string>
         <string name="exitFiftyFifty">Выйти</string>
+        <string name="deathnumTwopl1">Смертельное число: </string>
+        <string name="PointsTwoPl1">Количество баллов: </string>
+        <string name="exitTwoPl1">Выйти</string>
+        <string name="deathnumTwopl2">Смертельное число: </string>
+        <string name="PointsTwoPl2">Количество баллов: </string>
+        <string name="exitTwoPl2">Выйти</string>
+        <string name="yes">Да</string>
+        <string name="no">Нет</string>
+        <string name="Alertbuil">Это смертельная карта?</string>
     </resources>

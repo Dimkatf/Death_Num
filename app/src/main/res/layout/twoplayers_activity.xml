@@ -7,6 +7,7 @@
 
     <TextView
         android:id="@+id/deathNumTextTwoPlayers1"
+        android:text="@string/deathnumTwopl1"
         android:layout_width="300sp"
         android:layout_height="70sp"
         android:layout_marginStart="84dp"
@@ -25,7 +26,7 @@
         android:layout_height="70sp"
         android:layout_marginStart="96dp"
         android:layout_marginTop="604dp"
-        android:text="Количество баллов: "
+        android:text="@string/PointsTwoPl1"
         android:textColor="@color/color_black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -41,7 +42,7 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="652dp"
         android:backgroundTint="@color/color_red"
-        android:text="Выйти"
+        android:text="@string/exitTwoPl1"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

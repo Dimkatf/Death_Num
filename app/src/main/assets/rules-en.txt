@@ -1,0 +1,46 @@
+Game Rules "Death num"
+
+🎮 Game Modes:
+
+Single Player
+
+12 cards, 1 deadly number
+Open cards one by one:
+✔️ Non-deadly = +1 point
+💀 Deadly = game over (points are saved)
+You can guess the deadly card:
+✓ Correct guess = 13 points (maximum score)
+✗ Wrong guess = -1 point
+Two Players
+
+Each player chooses a deadly number for the opponent
+The winner is the one with more points
+Rules are the same as in single-player mode
+Super Game (5 Rounds)
+
+🔹 Round 1: 10 cards, 1 deadly
+Open as many as you want:
+✔️ Regular = +1 point
+💀 Deadly = game over and 0 points
+To proceed: at least 1 card must be opened
+🔹 Round 2: 8 cards
+Each opened card = +2 points
+🔹 Round 3: 6 cards:
+Each opened card = +3 points
+You can finish the game with current points
+🔹 Round 4: 4 cards:
+Each opened card = +4 points
+You can finish the game with current points
+🔹 Round 5: 2 cards:
+Each opened card = +5 points
+You can finish the game with current points
+With each round, the number of cards decreases, but the reward increases!
+
+50/50
+
+2 cards – one is correct, the other is not
+For each correct card, you earn a point
+Mistake = game ends with current score
+🏆 Important: The higher the risk, the greater the reward. You can stop at any moment.
+
+Good luck! In this game, you will need it more than ever! 😊

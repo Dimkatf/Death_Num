@@ -21,4 +21,13 @@
     <string name="exitOnePl">Exit</string>
     <string name="pointsFiftyFifty">Points: </string>
     <string name="exitFiftyFifty">Exit</string>
+    <string name="deathnumTwopl1">Death num: </string>
+    <string name="PointsTwoPl1">Points: </string>
+    <string name="exitTwoPl1">Exit</string>
+    <string name="deathnumTwopl2">Death num: </string>
+    <string name="PointsTwoPl2">Points: </string>
+    <string name="exitTwoPl2">Exit</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="Alertbuil">Is it a death num?</string>
 </resources>
