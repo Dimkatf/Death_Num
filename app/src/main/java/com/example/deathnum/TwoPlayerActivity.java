@@ -215,42 +215,39 @@ public class TwoPlayerActivity extends AppCompatActivity {
     }
 
     private void showNumberInputDialog() {
-        final EditText input = new EditText(this);
-        input.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Загадайте число от 1 до 12:");
-        builder.setView(input);
+        View dialogView = getLayoutInflater().inflate(R.layout.alerttwoplayers, null);
+        builder.setView(dialogView);
 
-        builder.setPositiveButton("Загадал", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String inputText = input.getText().toString();
-                if (!inputText.isEmpty()) {
-                    try {
-                        death_num1 = Integer.parseInt(inputText);
-                        if (death_num1 >= 1 && death_num1 <= 12) {
-                            deathNumTextTwo1.setText(getString(R.string.deathnumTwopl1) + " " + death_num1);
-                        } else {
-                            Toast.makeText(TwoPlayerActivity.this,
-                                    "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
-                            showNumberInputDialog();
-                        }
-                    } catch (NumberFormatException e) {
+        EditText input = dialogView.findViewById(R.id.editNums);
+        Button ok = dialogView.findViewById(R.id.btn_ok);
+
+        builder.setCancelable(false);
+
+        AlertDialog dialog = builder.create();
+
+        ok.setOnClickListener(v -> {
+            String inputText = input.getText().toString();
+            if (!inputText.isEmpty()) {
+                try {
+                    death_num1 = Integer.parseInt(inputText);
+                    if (death_num1 >= 1 && death_num1 <= 12) {
+                        deathNumTextTwo1.setText(getString(R.string.deathnumTwopl1) + " " + death_num1);
+                        dialog.dismiss();
+                    } else {
                         Toast.makeText(TwoPlayerActivity.this,
-                                "Введите корректное число!", Toast.LENGTH_SHORT).show();
-                        showNumberInputDialog();
+                                "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
                     }
-                } else {
+                } catch (NumberFormatException e) {
                     Toast.makeText(TwoPlayerActivity.this,
-                            "Введите число!", Toast.LENGTH_SHORT).show();
-                    showNumberInputDialog();
+                            "Введите корректное число!", Toast.LENGTH_SHORT).show();
                 }
+            } else {
+                Toast.makeText(TwoPlayerActivity.this,
+                        "Введите число!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        builder.setCancelable(false);
-        AlertDialog dialog = builder.create();
         dialog.show();
     }
     public void choice(int num, Runnable onDissmiss) {

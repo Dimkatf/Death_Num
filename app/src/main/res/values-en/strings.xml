@@ -2,15 +2,15 @@
     <string name="app_name">Death Num</string>
     <string name="death_num">Death num</string>
     <string name="language_choice">Language</string>
-    <string name="single_player">One Player</string>
-    <string name="two_players">Two Players</string>
-    <string name="super_game">Super Game</string>
-    <string name="exit">Exit</string>
-    <string name="rules">Rules</string>
-    <string name="statistics">Statistics</string>
+    <string name="single_player">ONE PLAYER</string>
+    <string name="two_players">TWO PLAYERS</string>
+    <string name="super_game">SUPERGAME</string>
+    <string name="exit">EXIT</string>
+    <string name="rules">RULES</string>
+    <string name="statistics">STATISTICS</string>
     <string name="russian">Russian</string>
     <string name="english">English</string>
-    <string name="fiftyfifty">Fifty-fifty</string>
+    <string name="fiftyfifty">FIFTY-FIFTY</string>
     <string name="death_numone">Death num</string>
     <string name="game_over">Game Over!</string>
     <string name="final_score">Final Score:</string>
@@ -30,4 +30,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="Alertbuil">Is it a death num?</string>
+    <string name="AlertTwo">Ok</string>
+    <string name="textAlert">Enter a number from 1 to 12</string>
 </resources>

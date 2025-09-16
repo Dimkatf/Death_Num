@@ -2,15 +2,15 @@
         <string name="app_name">Death Num</string>
         <string name="death_num">Death num</string>
         <string name="language_choice">Выбор языка</string>
-        <string name="single_player">Одиночная игра</string>
-        <string name="two_players">Два игрока</string>
-        <string name="super_game">Суперигра</string>
-        <string name="exit">Выйти</string>
-        <string name="rules">Правила</string>
-        <string name="statistics">Статистика</string>
+        <string name="single_player">ОДИНОЧНАЯ ИГРА</string>
+        <string name="two_players">ДВА ИГРОКА</string>
+        <string name="super_game">СУПЕРИГРА</string>
+        <string name="exit">ВЫХОД</string>
+        <string name="rules">ПРАВИЛА</string>
+        <string name="statistics">СТАТИСТИКА</string>
         <string name="russian">Русский</string>
         <string name="english">English</string>
-        <string name="fiftyfifty">50 на 50</string>
+        <string name="fiftyfifty">50 НА 50</string>
         <string name="death_numone">Смертельное число</string>
         <string name="game_over">Игра завершена!</string>
         <string name="final_score">Итоговое количество баллов:</string>
@@ -30,4 +30,6 @@
         <string name="yes">Да</string>
         <string name="no">Нет</string>
         <string name="Alertbuil">Это смертельная карта?</string>
+        <string name="AlertTwo">Загадал</string>
+        <string name="textAlert">Загадайте число от 1 до 12</string>
     </resources>
