@@ -30,7 +30,6 @@ public class SuperGameActivity5 extends AppCompatActivity {
     private TextView countTextSuper5;
     Time time = new Time();
     private ArrayList<Integer> numsSuper5 = new ArrayList<>();
-    private int currentScore = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,6 @@ public class SuperGameActivity5 extends AppCompatActivity {
         dbManager = new StatsDatabaseManager(this);
         dbManager.open();
 
-        // Увеличиваем счетчик сыгранных игр
         dbManager.incrementModeCount(DatabaseConstants.MODE_SUPER_GAME);
         deathNumSuper5 = random.nextInt(COUNT_CARDS)+1;
 
@@ -59,11 +57,11 @@ public class SuperGameActivity5 extends AppCompatActivity {
         App app = (App) getApplication();
 
         deathNumText5 = findViewById(R.id.deathNumTextforSuper5);
-        deathNumText5.setText("Смертельное число: " + deathNumSuper5);
+        deathNumText5.setText(getString(R.string.deathnum) + " " + app.getGlobalcount());
 
 
         countTextSuper5 = findViewById(R.id.countSuper5);
-        countTextSuper5.setText("Количество баллов: " + app.getGlobalcount());
+        countTextSuper5.setText(getString(R.string.Points) + " " + app.getGlobalcount());
 
         Button card1Super5 = findViewById(R.id.card1Super5);
         Button card2Super5 = findViewById(R.id.card2Super5);
@@ -101,11 +99,11 @@ public class SuperGameActivity5 extends AppCompatActivity {
         App app = (App) getApplication();
         if(numSuper5 != deathNumSuper5) {
             app.setGlobalcount(app.getGlobalcount() + POINTS);
-            countTextSuper5.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper5.setText(getString(R.string.Points) + " " + app.getGlobalcount());
         }
         else {
             app.setGlobalcount(0);
-            countTextSuper5.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper5.setText(getString(R.string.Points) + " " + app.getGlobalcount());
             Intent intent = new Intent(SuperGameActivity5.this, GameOverSuperGame.class);
             startActivity(intent);
         }

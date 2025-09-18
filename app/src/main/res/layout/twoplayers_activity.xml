@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/deathNumTextTwoPlayers1"
-        android:text="@string/deathnumTwopl1"
+        android:text="@string/deathnum"
         android:layout_width="300sp"
         android:layout_height="70sp"
         android:layout_marginStart="84dp"
@@ -26,7 +26,7 @@
         android:layout_height="70sp"
         android:layout_marginStart="96dp"
         android:layout_marginTop="604dp"
-        android:text="@string/PointsTwoPl1"
+        android:text="@string/Points"
         android:textColor="@color/color_black"
         android:textSize="20sp"
         android:textStyle="bold"

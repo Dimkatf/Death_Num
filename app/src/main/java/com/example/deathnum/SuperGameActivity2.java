@@ -55,12 +55,11 @@ public class SuperGameActivity2 extends AppCompatActivity {
         App app = (App) getApplication();
 
         deathNumText2 = findViewById(R.id.deathNumTextforSuper2);
-        deathNumText2.setText("Смертельное число: " + deathNumSuper2);
+        deathNumText2.setText(getString(R.string.deathnum) + " " + app.getGlobalcount());
 
-        //countSuper2 = SuperGameActivity.countSuper;
 
         countTextSuper2 = findViewById(R.id.countSuper2);
-        countTextSuper2.setText("Количество баллов: " + app.getGlobalcount());
+        countTextSuper2.setText(getString(R.string.Points) + " " + app.getGlobalcount());
 
         Button card1Super2 = findViewById(R.id.card1Super2);
         Button card2Super2 = findViewById(R.id.card2Super2);
@@ -185,11 +184,11 @@ public class SuperGameActivity2 extends AppCompatActivity {
         App app = (App) getApplication();
         if(numSuper1 != deathNumSuper2) {
             app.setGlobalcount(app.getGlobalcount() + POINTS);
-            countTextSuper2.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper2.setText(getString(R.string.Points) + " " + app.getGlobalcount());
         }
         else {
             app.setGlobalcount(0);
-            countTextSuper2.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper2.setText(getString(R.string.Points) + " " + app.getGlobalcount());
             Intent intent = new Intent(SuperGameActivity2.this, GameOverSuperGame.class);
             startActivity(intent);
         }

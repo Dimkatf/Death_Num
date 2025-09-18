@@ -47,7 +47,7 @@ public class TwoPlayer2Activity extends AppCompatActivity {
         countTextviewTwo2 = findViewById(R.id.countTwo2);
 
         countTwo2 = 0;
-        countTextviewTwo2.setText(getString(R.string.PointsTwoPl2)+ countTwo2);
+        countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
         showNumberInputDialog();
         Button exit = findViewById(R.id.exitTwoPl2);
         exit.setOnClickListener(v -> {
@@ -228,7 +228,7 @@ public class TwoPlayer2Activity extends AppCompatActivity {
                 try {
                     death_num2 = Integer.parseInt(inputText);
                     if (death_num2 >= 1 && death_num2 <= 12) {
-                        deathNumTextTwo2.setText(getString(R.string.deathnumTwopl2) + " " + death_num2);
+                        deathNumTextTwo2.setText(getString(R.string.deathnum) + " " + death_num2);
                         dialog.dismiss();
                     } else {
                         Toast.makeText(TwoPlayer2Activity.this,
@@ -265,11 +265,11 @@ public class TwoPlayer2Activity extends AppCompatActivity {
             time.time(2000l);
             if (num == death_num2) {
                 countTwo2 = 13;
-                countTextviewTwo2.setText(getString(R.string.PointsTwoPl2)+ countTwo2);
+                countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
                 loseScreen();
             } else {
                 countTwo2 -= 1;
-                countTextviewTwo2.setText(getString(R.string.PointsTwoPl2)+ countTwo2);
+                countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
                 loseScreen();
             }
             onDissmiss.run();
@@ -280,7 +280,7 @@ public class TwoPlayer2Activity extends AppCompatActivity {
             time.time(2000l);
             if (num != death_num2) {
                 countTwo2 += 1;
-                countTextviewTwo2.setText(getString(R.string.PointsTwoPl2)+ countTwo2);
+                countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
             } else loseScreen();
             onDissmiss.run();
         });

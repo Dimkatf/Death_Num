@@ -18,6 +18,7 @@ public class StatistikActivity extends AppCompatActivity {
     TextView statsOnePlCountGames;
     TextView statsLastScores;
     Button exitBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +36,20 @@ public class StatistikActivity extends AppCompatActivity {
         dbManager = new StatsDatabaseManager(this);
         dbManager.open();
 
-
         statsOnePlCountGames = findViewById(R.id.statsOnePlayerCountGames);
         statsLastScores = findViewById(R.id.LastResstats);
+
+        updateUI();
+    }
+
+    private void updateUI() {
+        //exitBtn.setText(App.getLanguage().equals("en") ? "Exit" : "Выход");
+
+        // Обновляем статистику
         displayStatistics();
         displayScores();
     }
+
     private void displayStatistics() {
         StringBuilder stats = new StringBuilder();
 
@@ -49,10 +58,17 @@ public class StatistikActivity extends AppCompatActivity {
         int superGame = dbManager.getModeCount(DatabaseConstants.MODE_SUPER_GAME);
         int fiftyFifty = dbManager.getModeCount(DatabaseConstants.MODE_FIFTY_FIFTY);
 
-        stats.append("Один игрок: ").append(onePlayer).append("\n");
-        stats.append("Два игрока: ").append(twoPlayers).append("\n");
-        stats.append("Суперигра: ").append(superGame).append("\n");
-        stats.append("50 на 50: ").append(fiftyFifty).append("\n");
+        if (App.getLanguage().equals("en")) {
+            stats.append("One Player: ").append(onePlayer).append("\n");
+            stats.append("Two Players: ").append(twoPlayers).append("\n");
+            stats.append("Super Game: ").append(superGame).append("\n");
+            stats.append("Fifty-Fifty: ").append(fiftyFifty).append("\n");
+        } else {
+            stats.append("Один игрок: ").append(onePlayer).append("\n");
+            stats.append("Два игрока: ").append(twoPlayers).append("\n");
+            stats.append("Суперигра: ").append(superGame).append("\n");
+            stats.append("50 на 50: ").append(fiftyFifty).append("\n");
+        }
 
         statsOnePlCountGames.setText(stats.toString());
     }
@@ -62,6 +78,7 @@ public class StatistikActivity extends AppCompatActivity {
         super.onDestroy();
         dbManager.close();
     }
+
     private void displayScores() {
         StringBuilder scores = new StringBuilder();
 
@@ -74,19 +91,39 @@ public class StatistikActivity extends AppCompatActivity {
         int lastFiftyFifty = dbManager.getLastScore(DatabaseConstants.MODE_FIFTY_FIFTY);
         int bestFiftyFifty = dbManager.getBestScore(DatabaseConstants.MODE_FIFTY_FIFTY);
 
-        scores.append("Один игрок:\n");
-        scores.append("  Последний: ").append(lastOnePlayer).append("\n");
-        scores.append("  Лучший: ").append(bestOnePlayer).append("\n\n");
+        if (App.getLanguage().equals("en")) {
+            scores.append("One Player:\n");
+            scores.append("  Last: ").append(lastOnePlayer).append("\n");
+            scores.append("  Best: ").append(bestOnePlayer).append("\n\n");
 
-        scores.append("Суперигра:\n");
-        scores.append("  Последний: ").append(lastSuperGame).append("\n");
-        scores.append("  Лучший: ").append(bestSuperGame).append("\n\n");
+            scores.append("Super Game:\n");
+            scores.append("  Last: ").append(lastSuperGame).append("\n");
+            scores.append("  Best: ").append(bestSuperGame).append("\n\n");
 
-        scores.append("50 на 50:\n");
-        scores.append("  Последний: ").append(lastFiftyFifty).append("\n");
-        scores.append("  Лучший: ").append(bestFiftyFifty).append("\n");
+            scores.append("Fifty-Fifty:\n");
+            scores.append("  Last: ").append(lastFiftyFifty).append("\n");
+            scores.append("  Best: ").append(bestFiftyFifty).append("\n");
+        } else {
+            scores.append("Один игрок:\n");
+            scores.append("  Последний: ").append(lastOnePlayer).append("\n");
+            scores.append("  Лучший: ").append(bestOnePlayer).append("\n\n");
+
+            scores.append("Суперигра:\n");
+            scores.append("  Последний: ").append(lastSuperGame).append("\n");
+            scores.append("  Лучший: ").append(bestSuperGame).append("\n\n");
+
+            scores.append("50 на 50:\n");
+            scores.append("  Последний: ").append(lastFiftyFifty).append("\n");
+            scores.append("  Лучший: ").append(bestFiftyFifty).append("\n");
+        }
 
         statsLastScores.setText(scores.toString());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
     }
 }
 

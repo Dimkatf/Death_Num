@@ -29,7 +29,6 @@ public class SuperGameActivity4 extends AppCompatActivity {
     private TextView countTextSuper4;
     private Button gameOver4Btn;
     private ArrayList<Integer> numsSuper4 = new ArrayList<>();
-    private int currentScore = 0;
     Time time = new Time();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +60,10 @@ public class SuperGameActivity4 extends AppCompatActivity {
         });
 
         deathNumText4 = findViewById(R.id.deathNumTextforSuper4);
-        deathNumText4.setText("Смертельное число: " + deathNumSuper4);
-
-        //countSuper4 = SuperGameActivity3.countSuper3;
+        deathNumText4.setText(getString(R.string.deathnum) + " " + app.getGlobalcount());
 
         countTextSuper4 = findViewById(R.id.countSuper4);
-        countTextSuper4.setText("Количество баллов: " + app.getGlobalcount());
+        countTextSuper4.setText(getString(R.string.Points) + " " + app.getGlobalcount());
 
         Button card1Super4 = findViewById(R.id.card1Super4);
         Button card2Super4 = findViewById(R.id.card2Super4);
@@ -139,13 +136,14 @@ public class SuperGameActivity4 extends AppCompatActivity {
         App app = (App) getApplication();
         if(numSuper4 != deathNumSuper4) {
             app.setGlobalcount(app.getGlobalcount()+ POINTS);
-            countTextSuper4.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper4.setText(getString(R.string.Points) + " " + app.getGlobalcount());
         }
         else {
             app.setGlobalcount(0);
-            countTextSuper4.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper4.setText(getString(R.string.Points) + " " + app.getGlobalcount());
             Intent intent = new Intent(SuperGameActivity4.this, GameOverSuperGame.class);
             startActivity(intent);
+            finish();
         }
     }
     private void activateNextRound(int num){

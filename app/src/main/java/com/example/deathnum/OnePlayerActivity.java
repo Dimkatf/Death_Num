@@ -119,10 +119,10 @@ public class OnePlayerActivity extends BaseActivity{
         count = 0;
         deathNum = random.nextInt(COUNT_CARDS) + 1;
         deathNumText = findViewById(R.id.deathNumText);
-        deathNumText.setText(getString(R.string.deathnumOnepl) + " " + deathNum);
+        deathNumText.setText(getString(R.string.deathnum) + " " + deathNum);
 
         countTextview = findViewById(R.id.countOne);
-        countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
+        countTextview.setText(getString(R.string.Points) + " " + count);
 
         card1 = findViewById(R.id.card1One);
         card2 = findViewById(R.id.card2One);
@@ -242,11 +242,11 @@ public class OnePlayerActivity extends BaseActivity{
             time.time(2000L);
             if (num == deathNum) {
                 count = 13;
-                countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
+                countTextview.setText(getString(R.string.Points) + " " + count);
                 loseScreen();
             } else {
                 count -= 1;
-                countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
+                countTextview.setText(getString(R.string.Points) + " " + count);
                 loseScreen();
             }
             onDismiss.run();
@@ -257,7 +257,7 @@ public class OnePlayerActivity extends BaseActivity{
             time.time(2000L);
             if (num != deathNum) {
                 count += 1;
-                countTextview.setText(getString(R.string.PointsOnePl) + " " + count);
+                countTextview.setText(getString(R.string.Points) + " " + count);
                 setAllCardsEnabled(true);
             } else {
                 loseScreen();

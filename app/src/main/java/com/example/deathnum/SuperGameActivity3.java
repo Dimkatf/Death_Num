@@ -29,7 +29,7 @@ public class SuperGameActivity3 extends AppCompatActivity {
     private static final int POINTS = 3;
     private Button gameOver3Btn;
     private ArrayList<Integer> numsSuper3 = new ArrayList<>();
-    private int currentScore = 0;
+    //private int currentScore = 0;
     Time time = new Time();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +62,11 @@ public class SuperGameActivity3 extends AppCompatActivity {
         });
 
         deathNumText3 = findViewById(R.id.deathNumTextforSuper3);
-        deathNumText3.setText("Смертельное число: " + deathNumSuper3);
+        deathNumText3.setText(getString(R.string.deathnum) + " " + app.getGlobalcount());
 
 
         countTextSuper3 = findViewById(R.id.countSuper3);
-        countTextSuper3.setText("Количество баллов: " + app.getGlobalcount());
+        countTextSuper3.setText(getString(R.string.Points) + " " + app.getGlobalcount());
 
         Button card1Super3 = findViewById(R.id.card1Super3);
         Button card2Super3 = findViewById(R.id.card2Super3);
@@ -167,11 +167,11 @@ public class SuperGameActivity3 extends AppCompatActivity {
         App app = (App) getApplication();
         if(numSuper3 != deathNumSuper3) {
             app.setGlobalcount(app.getGlobalcount() + POINTS);
-            countTextSuper3.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper3.setText(getString(R.string.Points) + " " + app.getGlobalcount());
         }
         else {
             app.setGlobalcount(0);
-            countTextSuper3.setText("Количество баллов: " + app.getGlobalcount());
+            countTextSuper3.setText(getString(R.string.Points) + " " + app.getGlobalcount());
             Intent intent = new Intent(SuperGameActivity3.this, GameOverSuperGame.class);
             startActivity(intent);
         }
