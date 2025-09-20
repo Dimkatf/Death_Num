@@ -77,18 +77,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/exitSuper5"
-        android:layout_width="250sp"
-        android:layout_height="60sp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="652dp"
-        android:backgroundTint="@color/color_red"
-        android:text="@string/exit"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/card1Super5"

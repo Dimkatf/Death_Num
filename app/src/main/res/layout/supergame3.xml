@@ -78,23 +78,10 @@
 
 
     <Button
-        android:id="@+id/exitSuper3"
-        android:layout_width="150sp"
-        android:layout_height="50sp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="652dp"
-        android:backgroundTint="@color/color_red"
-        android:text="@string/exit"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/gameOverSuper3"
         android:layout_width="150sp"
         android:layout_height="50sp"
-        android:layout_marginStart="244dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="652dp"
         android:backgroundTint="@color/color_black"
         android:text="@string/FinishGame"

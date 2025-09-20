@@ -10,12 +10,11 @@ import java.util.Locale;
 
 public class App extends Application {
     private int Globalcount = 0;
-    private static String selectedLanguage = "ru"; // По умолчанию русский
+    private static String selectedLanguage = "ru"; //
 
     @Override
     public void onCreate() {
         super.onCreate();
-        // Здесь можно загрузить сохраненный язык из SharedPreferences
     }
 
     public int getGlobalcount() {
@@ -30,10 +29,9 @@ public class App extends Application {
         this.Globalcount = 0;
     }
 
-    // Методы для работы с языком
+
     public static void setLanguage(String lang) {
         selectedLanguage = lang;
-        // Здесь можно сохранить язык в SharedPreferences
     }
 
     public static String getLanguage() {

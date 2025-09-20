@@ -54,7 +54,7 @@ public class TwoPlayerActivity extends AppCompatActivity {
         countTextviewTwo1 = findViewById(R.id.countTwo1);
 
         countTwo1 = 0;
-        countTextviewTwo1.setText(getString(R.string.deathnum) + " " + countTwo1);
+        countTextviewTwo1.setText(getString(R.string.Points) + " " + countTwo1);
         showNumberInputDialog();
         Button exit = findViewById(R.id.exitTwoPl1);
         exit.setOnClickListener(v -> finish());
@@ -235,16 +235,28 @@ public class TwoPlayerActivity extends AppCompatActivity {
                         deathNumTextTwo1.setText(getString(R.string.deathnum) + " " + death_num1);
                         dialog.dismiss();
                     } else {
-                        Toast.makeText(TwoPlayerActivity.this,
-                                "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
+                        if(App.getLanguage().equals("en"))
+                         Toast.makeText(TwoPlayerActivity.this,
+                                "The number must be between 1 and 12!", Toast.LENGTH_SHORT).show();
+                         else
+                            Toast.makeText(TwoPlayerActivity.this,
+                                    "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NumberFormatException e) {
-                    Toast.makeText(TwoPlayerActivity.this,
-                            "Введите корректное число!", Toast.LENGTH_SHORT).show();
+                    if (App.getLanguage().equals("en"))
+                     Toast.makeText(TwoPlayerActivity.this,
+                            "Please enter a valid number", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(TwoPlayerActivity.this,
+                                "Пожалуйста, введите корректное число", Toast.LENGTH_SHORT).show();
                 }
             } else {
+                if (App.getLanguage().equals("en"))
                 Toast.makeText(TwoPlayerActivity.this,
-                        "Введите число!", Toast.LENGTH_SHORT).show();
+                        "Enter the Death num!", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(TwoPlayerActivity.this,
+                            "Введите смертельное число!", Toast.LENGTH_SHORT).show();
             }
         });
 

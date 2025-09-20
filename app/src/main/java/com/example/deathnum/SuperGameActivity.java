@@ -60,7 +60,7 @@ public class SuperGameActivity extends AppCompatActivity {
         });
 
         deathNumText = findViewById(R.id.deathNumTextforSuper);
-        deathNumText.setText(getString(R.string.deathnum) + " " + app.getGlobalcount());
+        deathNumText.setText(getString(R.string.deathnum) + " " + deathNumSuper1);
 
         countTextSuper1 = findViewById(R.id.countSuper);
         countTextSuper1.setText(getString(R.string.Points) + " " + app.getGlobalcount());

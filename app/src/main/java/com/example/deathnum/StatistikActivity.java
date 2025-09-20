@@ -44,8 +44,6 @@ public class StatistikActivity extends AppCompatActivity {
 
     private void updateUI() {
         //exitBtn.setText(App.getLanguage().equals("en") ? "Exit" : "Выход");
-
-        // Обновляем статистику
         displayStatistics();
         displayScores();
     }

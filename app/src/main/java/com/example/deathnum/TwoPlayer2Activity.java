@@ -231,16 +231,28 @@ public class TwoPlayer2Activity extends AppCompatActivity {
                         deathNumTextTwo2.setText(getString(R.string.deathnum) + " " + death_num2);
                         dialog.dismiss();
                     } else {
-                        Toast.makeText(TwoPlayer2Activity.this,
-                                "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
+                        if(App.getLanguage().equals("en"))
+                            Toast.makeText(TwoPlayer2Activity.this,
+                                    "The number must be between 1 and 12!", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(TwoPlayer2Activity.this,
+                                    "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NumberFormatException e) {
-                    Toast.makeText(TwoPlayer2Activity.this,
-                            "Введите корректное число!", Toast.LENGTH_SHORT).show();
+                    if (App.getLanguage().equals("en"))
+                        Toast.makeText(TwoPlayer2Activity.this,
+                                "Please enter a valid number", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(TwoPlayer2Activity.this,
+                                "Пожалуйста, введите корректное число", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(TwoPlayer2Activity.this,
-                        "Введите число!", Toast.LENGTH_SHORT).show();
+                if (App.getLanguage().equals("en"))
+                    Toast.makeText(TwoPlayer2Activity.this,
+                            "Enter the Death num!", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(TwoPlayer2Activity.this,
+                            "Введите смертельное число!", Toast.LENGTH_SHORT).show();
             }
         });
 

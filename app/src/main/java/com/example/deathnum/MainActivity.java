@@ -20,6 +20,7 @@ import java.util.Locale;
 
 public class MainActivity extends BaseActivity {
     private Spinner languageSpinner;
+    Time time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,6 @@ public class MainActivity extends BaseActivity {
 
         languageSpinner = findViewById(R.id.languageSpinner);
 
-        // Устанавливаем правильную позицию спиннера based on current language
         if (App.getLanguage().equals("en")) {
             languageSpinner.setSelection(1);
         } else {
@@ -66,8 +66,10 @@ public class MainActivity extends BaseActivity {
 
         Button onePlayer = findViewById(R.id.onePlayerBtn);
         onePlayer.setOnClickListener(v -> {
+            //time.time(300l);
             Intent intent = new Intent(this, OnePlayerActivity.class);
             startActivity(intent);
+
         });
 
         Button twoPlayer = findViewById(R.id.twoPlayerBtn);

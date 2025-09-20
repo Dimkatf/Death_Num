@@ -32,12 +32,27 @@ public class GameOverTwoPlayers extends AppCompatActivity {
         TextView result = findViewById(R.id.resultsTwoPlayers);
         int res1 = TwoPlayerActivity.countTwo1;
         int res2 = TwoPlayer2Activity.countTwo2;
-        result.setText("Игрок 1 " + res1 + " : " + res2 + " Игрок 2");
+
+        if (App.getLanguage().equals("en"))
+            result.setText("Player 1 " + res1 + " : " + res2 + " Player 2");
+        else result.setText("Игрок 1 " + res1 + " : " + res2 + " Игрок 2");
+
         TextView wins = findViewById(R.id.winsTextview);
-        if (res1 > res2)
-          wins.setText("Игрок 1 выиграл!");
-        else if(res1 == res2)
-            wins.setText("Ничья!");
-        else wins.setText("Игрок 2 выиграл!");
+        if (res1 > res2){
+            if (App.getLanguage().equals("en"))
+                wins.setText("Player 1 wins!");
+            else wins.setText("Игрок 1 выиграл!");
+        }
+
+        else if(res1 == res2) {
+            if (App.getLanguage().equals("en"))
+                wins.setText("Draw!");
+            else wins.setText("Ничья!");
+        }
+
+        else
+         if (App.getLanguage().equals("en"))
+            wins.setText("Player 2 wins!");
+         else wins.setText("Игрок 2 выиграл!");
     }
 }

@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,7 +26,7 @@ import java.util.Random;
 import com.example.deathnum.database.DatabaseConstants;
 import com.example.deathnum.database.StatsDatabaseManager;
 
-public class OnePlayerActivity extends BaseActivity{
+public class OnePlayerActivity extends AppCompatActivity {
 
     StatsDatabaseManager dbManager;
     private Random random = new Random();
@@ -44,6 +48,10 @@ public class OnePlayerActivity extends BaseActivity{
     Button card7;Button card8;Button card9;
     Button card10;Button card11;Button card12;
 
+    private RelativeLayout deathNumberOverlay;
+    private TextView deathNumberText;
+    private Animation slideUpAnimation, slideDownAnimation, pulseAnimation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +62,15 @@ public class OnePlayerActivity extends BaseActivity{
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Инициализация анимаций
+        slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
+        slideDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_down);
+        pulseAnimation = AnimationUtils.loadAnimation(this, R.anim.text_pulse);
+
+        // Находим overlay
+        deathNumberOverlay = findViewById(R.id.deathNumberOverlay);
+        deathNumberText = findViewById(R.id.deathNumberText);
 
         dbManager = new StatsDatabaseManager(this);
         dbManager.open();
@@ -136,6 +153,8 @@ public class OnePlayerActivity extends BaseActivity{
         card10 = findViewById(R.id.card10One);
         card11 = findViewById(R.id.card11One);
         card12 = findViewById(R.id.card12One);
+
+        showDeathNumberAnimation(deathNum);
 
         card1.setOnClickListener(v -> {
             card1.setEnabled(false);
@@ -221,6 +240,24 @@ public class OnePlayerActivity extends BaseActivity{
                 card12.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
             });
         });
+    }
+
+    private void showDeathNumberAnimation(int deathNumber) {
+        deathNumberText.setText("DEATH NUM: " + deathNumber);
+
+        deathNumberOverlay.setVisibility(View.VISIBLE);
+        deathNumberText.setVisibility(View.VISIBLE);
+
+        deathNumberOverlay.startAnimation(slideUpAnimation);
+        deathNumberText.startAnimation(pulseAnimation);
+
+        new Handler().postDelayed(() -> {
+            deathNumberOverlay.startAnimation(slideDownAnimation);
+            deathNumberOverlay.postDelayed(() -> {
+                deathNumberOverlay.setVisibility(View.GONE);
+                deathNumberText.clearAnimation();
+            }, 800);
+        }, 5000);
     }
 
     public void choice(int num, Runnable onDismiss) {
@@ -321,6 +358,7 @@ public class OnePlayerActivity extends BaseActivity{
             card.setTextColor(Color.BLACK);
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
