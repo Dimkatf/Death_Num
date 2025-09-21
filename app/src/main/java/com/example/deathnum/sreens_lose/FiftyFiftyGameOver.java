@@ -1,4 +1,4 @@
-package com.example.deathnum;
+package com.example.deathnum.sreens_lose;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.deathnum.MainActivity;
+import com.example.deathnum.R;
+import com.example.deathnum.modes.FiftyFiftyGame;
 
 public class FiftyFiftyGameOver extends AppCompatActivity {
     Button exit;

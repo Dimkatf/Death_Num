@@ -1,9 +1,12 @@
-package com.example.deathnum;
+package com.example.deathnum.another_activities;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.deathnum.R;
+
 import java.io.IOException;
 import java.io.InputStream;
 

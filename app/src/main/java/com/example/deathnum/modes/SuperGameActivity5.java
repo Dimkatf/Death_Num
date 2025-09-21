@@ -1,10 +1,15 @@
-package com.example.deathnum;
+package com.example.deathnum.modes;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.TypedValue;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +18,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.deathnum.help_classes.App;
+import com.example.deathnum.sreens_lose.GameOverSuperGame;
+import com.example.deathnum.R;
+import com.example.deathnum.help_classes.Time;
 import com.example.deathnum.database.DatabaseConstants;
 import com.example.deathnum.database.StatsDatabaseManager;
 
@@ -30,6 +39,9 @@ public class SuperGameActivity5 extends AppCompatActivity {
     private TextView countTextSuper5;
     Time time = new Time();
     private ArrayList<Integer> numsSuper5 = new ArrayList<>();
+    private RelativeLayout roundOverlay;
+    private TextView roundNumberText;
+    private Animation slideUpAnimation, slideDownAnimation, pulseAnimation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +52,13 @@ public class SuperGameActivity5 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
+        slideDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_down);
+        pulseAnimation = AnimationUtils.loadAnimation(this, R.anim.text_pulse);
+
+        roundOverlay = findViewById(R.id.roundforsuper);
+        roundNumberText = findViewById(R.id.roundText);
 
         dbManager = new StatsDatabaseManager(this);
         dbManager.open();
@@ -94,6 +113,8 @@ public class SuperGameActivity5 extends AppCompatActivity {
 
         });
 
+        showRound();
+
     }
     private void score(int numSuper5){
         App app = (App) getApplication();
@@ -107,6 +128,31 @@ public class SuperGameActivity5 extends AppCompatActivity {
             Intent intent = new Intent(SuperGameActivity5.this, GameOverSuperGame.class);
             startActivity(intent);
         }
+    }
+    private void showRound() {
+        // Блокируем взаимодействие во время анимации
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        );
+
+        roundNumberText.setText("РАУНД 5. Последний!");
+
+        roundOverlay.setVisibility(View.VISIBLE);
+        roundNumberText.setVisibility(View.VISIBLE);
+
+        roundOverlay.startAnimation(slideUpAnimation);
+        roundNumberText.startAnimation(pulseAnimation);
+
+        new Handler().postDelayed(() -> {
+            roundOverlay.startAnimation(slideDownAnimation);
+            roundOverlay.postDelayed(() -> {
+                roundOverlay.setVisibility(View.GONE);
+                roundNumberText.clearAnimation();
+
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            }, 800);
+        }, 3000);
     }
 
 }

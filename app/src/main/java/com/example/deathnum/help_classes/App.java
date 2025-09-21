@@ -1,4 +1,4 @@
-package com.example.deathnum;
+package com.example.deathnum.help_classes;
 
 import android.app.Application;
 import android.content.Context;

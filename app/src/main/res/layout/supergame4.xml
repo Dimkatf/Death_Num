@@ -19,19 +19,6 @@
 
     </TextView>
 
-    <TextView
-        android:id="@+id/Round4"
-        android:layout_width="300sp"
-        android:layout_height="70sp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="36dp"
-        android:text="Раунд 4"
-        android:textColor="@color/color_black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
 
     <TextView
         android:id="@+id/deathNumText4"
@@ -146,5 +133,15 @@
         app:cornerRadius="9dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        layout="@layout/round_for_super_game"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

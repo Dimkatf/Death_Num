@@ -1,4 +1,4 @@
-package com.example.deathnum;
+package com.example.deathnum.modes;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,17 +6,19 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.deathnum.help_classes.BaseActivity;
+import com.example.deathnum.sreens_lose.FiftyFiftyGameOver;
+import com.example.deathnum.R;
+import com.example.deathnum.help_classes.Time;
 import com.example.deathnum.database.DatabaseConstants;
 import com.example.deathnum.database.StatsDatabaseManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class FiftyFiftyGame extends BaseActivity {
     StatsDatabaseManager dbManager;

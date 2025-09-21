@@ -1,4 +1,4 @@
-package com.example.deathnum;
+package com.example.deathnum.sreens_lose;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,10 +6,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.deathnum.help_classes.BaseActivity;
+import com.example.deathnum.MainActivity;
+import com.example.deathnum.R;
+import com.example.deathnum.modes.OnePlayerActivity;
 
 public class LoseScreenOnePlayer extends BaseActivity {
     @Override

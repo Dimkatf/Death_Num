@@ -1,9 +1,6 @@
 package com.example.deathnum;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,12 +8,19 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.Locale;
+import com.example.deathnum.another_activities.RulesActivity;
+import com.example.deathnum.another_activities.StatistikActivity;
+import com.example.deathnum.help_classes.App;
+import com.example.deathnum.help_classes.BaseActivity;
+import com.example.deathnum.help_classes.Time;
+import com.example.deathnum.modes.FiftyFiftyGame;
+import com.example.deathnum.modes.OnePlayerActivity;
+import com.example.deathnum.modes.SuperGameActivity;
+import com.example.deathnum.modes.TwoPlayerActivity;
 
 public class MainActivity extends BaseActivity {
     private Spinner languageSpinner;

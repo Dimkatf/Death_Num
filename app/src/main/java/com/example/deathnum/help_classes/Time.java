@@ -1,4 +1,4 @@
-package com.example.deathnum;
+package com.example.deathnum.help_classes;
 
 public class Time {
     public void time(Long time){

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".App"
+        android:name=".help_classes.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -22,21 +22,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <activity android:name=".OnePlayerActivity"></activity>
-        <activity android:name=".TwoPlayerActivity"></activity>
-        <activity android:name=".SuperGameActivity"></activity>
-        <activity android:name=".StatistikActivity"></activity>
-        <activity android:name=".LoseScreenOnePlayer"></activity>
-        <activity android:name=".SuperGameActivity2"></activity>
-        <activity android:name=".SuperGameActivity3"></activity>
-        <activity android:name=".SuperGameActivity4"></activity>
-        <activity android:name=".SuperGameActivity5"></activity>
-        <activity android:name=".GameOverSuperGame"></activity>
-        <activity android:name=".RulesActivity"></activity>
-        <activity android:name=".TwoPlayer2Activity"></activity>
-        <activity android:name=".GameOverTwoPlayers"></activity>
-        <activity android:name=".FiftyFiftyGame"></activity>
-        <activity android:name=".FiftyFiftyGameOver"></activity>
+       <activity android:name=".modes.OnePlayerActivity"></activity>
+        <activity android:name=".modes.TwoPlayerActivity"></activity>
+        <activity android:name=".modes.SuperGameActivity"></activity>
+        <activity android:name=".another_activities.StatistikActivity"></activity>
+        <activity android:name=".sreens_lose.LoseScreenOnePlayer"></activity>
+        <activity android:name=".modes.SuperGameActivity2"></activity>
+        <activity android:name=".modes.SuperGameActivity3"></activity>
+        <activity android:name=".modes.SuperGameActivity4"></activity>
+        <activity android:name=".modes.SuperGameActivity5"></activity>
+        <activity android:name=".sreens_lose.GameOverSuperGame"></activity>
+        <activity android:name=".another_activities.RulesActivity"></activity>
+        <activity android:name=".modes.TwoPlayer2Activity"></activity>
+        <activity android:name=".sreens_lose.GameOverTwoPlayers"></activity>
+        <activity android:name=".modes.FiftyFiftyGame"></activity>
+        <activity android:name=".sreens_lose.FiftyFiftyGameOver"></activity>
     </application>
 
 

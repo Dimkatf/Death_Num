@@ -1,4 +1,4 @@
-package com.example.deathnum;
+package com.example.deathnum.modes;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -23,6 +23,9 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.example.deathnum.sreens_lose.LoseScreenOnePlayer;
+import com.example.deathnum.R;
+import com.example.deathnum.help_classes.Time;
 import com.example.deathnum.database.DatabaseConstants;
 import com.example.deathnum.database.StatsDatabaseManager;
 
@@ -63,12 +66,11 @@ public class OnePlayerActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Инициализация анимаций
         slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
         slideDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_down);
         pulseAnimation = AnimationUtils.loadAnimation(this, R.anim.text_pulse);
 
-        // Находим overlay
+
         deathNumberOverlay = findViewById(R.id.deathNumberOverlay);
         deathNumberText = findViewById(R.id.deathNumberText);
 

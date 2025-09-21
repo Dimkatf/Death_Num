@@ -1,7 +1,7 @@
-package com.example.deathnum;
+package com.example.deathnum.modes;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,118 +14,118 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.deathnum.database.DatabaseConstants;
-import com.example.deathnum.database.StatsDatabaseManager;
+import com.example.deathnum.help_classes.App;
+import com.example.deathnum.sreens_lose.GameOverTwoPlayers;
+import com.example.deathnum.MainActivity;
+import com.example.deathnum.R;
+import com.example.deathnum.help_classes.Time;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class TwoPlayerActivity extends AppCompatActivity {
-    StatsDatabaseManager dbManager;
-    private int death_num1;
+public class TwoPlayer2Activity extends AppCompatActivity {
+    private int death_num2;
     Random random = new Random();
-    public static int countTwo1;
-    private TextView deathNumTextTwo1;
-    private TextView countTextviewTwo1;
-    private ArrayList<Integer> numsTwoPl1 = new ArrayList<>();
+    public static int countTwo2;
+    private TextView deathNumTextTwo2;
+    private TextView countTextviewTwo2;
+    private ArrayList<Integer> numsTwoPl2 = new ArrayList<>();
     Time time = new Time();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.twoplayers_activity);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.two), (v, insets) -> {
+        setContentView(R.layout.twoplayer2activity);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.two2), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        dbManager = new StatsDatabaseManager(this);
-        dbManager.open();
-        dbManager.incrementModeCount(DatabaseConstants.MODE_TWO_PLAYERS);
+        deathNumTextTwo2 = findViewById(R.id.deathNumTextTwoPlayers2);
+        countTextviewTwo2 = findViewById(R.id.countTwo2);
 
-        deathNumTextTwo1 = findViewById(R.id.deathNumTextTwoPlayers1);
-        countTextviewTwo1 = findViewById(R.id.countTwo1);
-
-        countTwo1 = 0;
-        countTextviewTwo1.setText(getString(R.string.Points) + " " + countTwo1);
+        countTwo2 = 0;
+        countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
         showNumberInputDialog();
-        Button exit = findViewById(R.id.exitTwoPl1);
-        exit.setOnClickListener(v -> finish());
+        Button exit = findViewById(R.id.exitTwoPl2);
+        exit.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
 
-        numsTwoPl1.add(1); numsTwoPl1.add(2); numsTwoPl1.add(3);
-        numsTwoPl1.add(4);numsTwoPl1.add(5);numsTwoPl1.add(6);
-        numsTwoPl1.add(7);numsTwoPl1.add(8);numsTwoPl1.add(9);
-        numsTwoPl1.add(10);numsTwoPl1.add(11);numsTwoPl1.add(12);
+        });
 
-        int randIndex1 = random.nextInt(numsTwoPl1.size());
-        int num1 = numsTwoPl1.get(randIndex1);
-        numsTwoPl1.remove(randIndex1);
+        numsTwoPl2.add(1); numsTwoPl2.add(2); numsTwoPl2.add(3);
+        numsTwoPl2.add(4);numsTwoPl2.add(5);numsTwoPl2.add(6);
+        numsTwoPl2.add(7);numsTwoPl2.add(8);numsTwoPl2.add(9);
+        numsTwoPl2.add(10);numsTwoPl2.add(11);numsTwoPl2.add(12);
 
-        int randIndex2 = random.nextInt(numsTwoPl1.size());
-        int num2 = numsTwoPl1.get(randIndex2);
-        numsTwoPl1.remove(randIndex2);
+        int randIndex1 = random.nextInt(numsTwoPl2.size());
+        int num1 = numsTwoPl2.get(randIndex1);
+        numsTwoPl2.remove(randIndex1);
 
-        int randIndex3 = random.nextInt(numsTwoPl1.size());
-        int num3 = numsTwoPl1.get(randIndex3);
-        numsTwoPl1.remove(randIndex3);
+        int randIndex2 = random.nextInt(numsTwoPl2.size());
+        int num2 = numsTwoPl2.get(randIndex2);
+        numsTwoPl2.remove(randIndex2);
 
-        int randIndex4 = random.nextInt(numsTwoPl1.size());
-        int num4 = numsTwoPl1.get(randIndex4);
-        numsTwoPl1.remove(randIndex4);
+        int randIndex3 = random.nextInt(numsTwoPl2.size());
+        int num3 = numsTwoPl2.get(randIndex3);
+        numsTwoPl2.remove(randIndex3);
 
-        int randIndex5 = random.nextInt(numsTwoPl1.size());
-        int num5 = numsTwoPl1.get(randIndex5);
-        numsTwoPl1.remove(randIndex5);
+        int randIndex4 = random.nextInt(numsTwoPl2.size());
+        int num4 = numsTwoPl2.get(randIndex4);
+        numsTwoPl2.remove(randIndex4);
 
-        int randIndex6 = random.nextInt(numsTwoPl1.size());
-        int num6 = numsTwoPl1.get(randIndex6);
-        numsTwoPl1.remove(randIndex6);
+        int randIndex5 = random.nextInt(numsTwoPl2.size());
+        int num5 = numsTwoPl2.get(randIndex5);
+        numsTwoPl2.remove(randIndex5);
 
-        int randIndex7 = random.nextInt(numsTwoPl1.size());
-        int num7 = numsTwoPl1.get(randIndex7);
-        numsTwoPl1.remove(randIndex7);
+        int randIndex6 = random.nextInt(numsTwoPl2.size());
+        int num6 = numsTwoPl2.get(randIndex6);
+        numsTwoPl2.remove(randIndex6);
 
-        int randIndex8 = random.nextInt(numsTwoPl1.size());
-        int num8 = numsTwoPl1.get(randIndex8);
-        numsTwoPl1.remove(randIndex8);
+        int randIndex7 = random.nextInt(numsTwoPl2.size());
+        int num7 = numsTwoPl2.get(randIndex7);
+        numsTwoPl2.remove(randIndex7);
 
-        int randIndex9 = random.nextInt(numsTwoPl1.size());
-        int num9 = numsTwoPl1.get(randIndex9);
-        numsTwoPl1.remove(randIndex9);
+        int randIndex8 = random.nextInt(numsTwoPl2.size());
+        int num8 = numsTwoPl2.get(randIndex8);
+        numsTwoPl2.remove(randIndex8);
 
-        int randIndex10 = random.nextInt(numsTwoPl1.size());
-        int num10 = numsTwoPl1.get(randIndex10);
-        numsTwoPl1.remove(randIndex10);
+        int randIndex9 = random.nextInt(numsTwoPl2.size());
+        int num9 = numsTwoPl2.get(randIndex9);
+        numsTwoPl2.remove(randIndex9);
 
-        int randIndex11 = random.nextInt(numsTwoPl1.size());
-        int num11 = numsTwoPl1.get(randIndex11);
-        numsTwoPl1.remove(randIndex11);
+        int randIndex10 = random.nextInt(numsTwoPl2.size());
+        int num10 = numsTwoPl2.get(randIndex10);
+        numsTwoPl2.remove(randIndex10);
 
-        int randIndex12 = random.nextInt(numsTwoPl1.size());
-        int num12 = numsTwoPl1.get(randIndex12);
-        numsTwoPl1.remove(randIndex12);
+        int randIndex11 = random.nextInt(numsTwoPl2.size());
+        int num11 = numsTwoPl2.get(randIndex11);
+        numsTwoPl2.remove(randIndex11);
 
+        int randIndex12 = random.nextInt(numsTwoPl2.size());
+        int num12 = numsTwoPl2.get(randIndex12);
+        numsTwoPl2.remove(randIndex12);
 
-
-        Button card1 = findViewById(R.id.card1Two1);
-        Button card2 = findViewById(R.id.card2Two1);
-        Button card3 = findViewById(R.id.card3Two1);
-        Button card4 = findViewById(R.id.card4Two1);
-        Button card5 = findViewById(R.id.card5Two1);
-        Button card6 = findViewById(R.id.card6Two1);
-        Button card7 = findViewById(R.id.card7Two1);
-        Button card8 = findViewById(R.id.card8Two1);
-        Button card9 = findViewById(R.id.card9Two1);
-        Button card10 = findViewById(R.id.card10Two1);
-        Button card11 = findViewById(R.id.card11Two1);
-        Button card12 = findViewById(R.id.card12Two1);
+        Button card1 = findViewById(R.id.card1Two2);
+        Button card2 = findViewById(R.id.card2Two2);
+        Button card3 = findViewById(R.id.card3Two2);
+        Button card4 = findViewById(R.id.card4Two2);
+        Button card5 = findViewById(R.id.card5Two2);
+        Button card6 = findViewById(R.id.card6Two2);
+        Button card7 = findViewById(R.id.card7Two2);
+        Button card8 = findViewById(R.id.card8Two2);
+        Button card9 = findViewById(R.id.card9Two2);
+        Button card10 = findViewById(R.id.card10Two2);
+        Button card11 = findViewById(R.id.card11Two2);
+        Button card12 = findViewById(R.id.card12Two2);
 
 
         card1.setOnClickListener(v -> {
@@ -230,32 +230,32 @@ public class TwoPlayerActivity extends AppCompatActivity {
             String inputText = input.getText().toString();
             if (!inputText.isEmpty()) {
                 try {
-                    death_num1 = Integer.parseInt(inputText);
-                    if (death_num1 >= 1 && death_num1 <= 12) {
-                        deathNumTextTwo1.setText(getString(R.string.deathnum) + " " + death_num1);
+                    death_num2 = Integer.parseInt(inputText);
+                    if (death_num2 >= 1 && death_num2 <= 12) {
+                        deathNumTextTwo2.setText(getString(R.string.deathnum) + " " + death_num2);
                         dialog.dismiss();
                     } else {
                         if(App.getLanguage().equals("en"))
-                         Toast.makeText(TwoPlayerActivity.this,
-                                "The number must be between 1 and 12!", Toast.LENGTH_SHORT).show();
-                         else
-                            Toast.makeText(TwoPlayerActivity.this,
+                            Toast.makeText(TwoPlayer2Activity.this,
+                                    "The number must be between 1 and 12!", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(TwoPlayer2Activity.this,
                                     "Число должно быть от 1 до 12!", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NumberFormatException e) {
                     if (App.getLanguage().equals("en"))
-                     Toast.makeText(TwoPlayerActivity.this,
-                            "Please enter a valid number", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TwoPlayer2Activity.this,
+                                "Please enter a valid number", Toast.LENGTH_SHORT).show();
                     else
-                        Toast.makeText(TwoPlayerActivity.this,
+                        Toast.makeText(TwoPlayer2Activity.this,
                                 "Пожалуйста, введите корректное число", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 if (App.getLanguage().equals("en"))
-                Toast.makeText(TwoPlayerActivity.this,
-                        "Enter the Death num!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TwoPlayer2Activity.this,
+                            "Enter the Death num!", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(TwoPlayerActivity.this,
+                    Toast.makeText(TwoPlayer2Activity.this,
                             "Введите смертельное число!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -278,14 +278,14 @@ public class TwoPlayerActivity extends AppCompatActivity {
 
         btnYes.setOnClickListener(v -> {
             dialog.dismiss();
-           time.time(2000l);
-            if (num == death_num1) {
-                countTwo1 = 13;
-                countTextviewTwo1.setText(getString(R.string.Points)+ countTwo1);
+            time.time(2000l);
+            if (num == death_num2) {
+                countTwo2 = 13;
+                countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
                 loseScreen();
             } else {
-                countTwo1 -= 1;
-                countTextviewTwo1.setText(getString(R.string.Points)+ countTwo1);
+                countTwo2 -= 1;
+                countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
                 loseScreen();
             }
             onDissmiss.run();
@@ -294,9 +294,9 @@ public class TwoPlayerActivity extends AppCompatActivity {
         btnNo.setOnClickListener(v -> {
             dialog.dismiss();
             time.time(2000l);
-            if (num != death_num1) {
-                countTwo1 += 1;
-                countTextviewTwo1.setText(getString(R.string.Points)+ countTwo1);
+            if (num != death_num2) {
+                countTwo2 += 1;
+                countTextviewTwo2.setText(getString(R.string.Points)+ countTwo2);
             } else loseScreen();
             onDissmiss.run();
         });
@@ -308,14 +308,7 @@ public class TwoPlayerActivity extends AppCompatActivity {
     }
 
     private void loseScreen(){
-        Intent intent = new Intent(this, TwoPlayer2Activity.class);
+        Intent intent = new Intent(this, GameOverTwoPlayers.class);
         startActivity(intent);
     }
-
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        dbManager.close();
-    }
-
 }

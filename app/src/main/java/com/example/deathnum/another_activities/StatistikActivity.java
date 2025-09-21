@@ -1,4 +1,4 @@
-package com.example.deathnum;
+package com.example.deathnum.another_activities;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.deathnum.help_classes.App;
+import com.example.deathnum.R;
 import com.example.deathnum.database.DatabaseConstants;
 import com.example.deathnum.database.StatsDatabaseManager;
 
