@@ -34,18 +34,23 @@
         app:cornerRadius="9dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/exitFiftyfifty"
-        android:layout_width="250sp"
-        android:layout_height="60sp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="652dp"
+        android:id="@+id/exitfiftyfifty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/color_black"
-        android:text="@string/exitFiftyFifty"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingVertical="12dp"
+        android:text="@string/exit"
+        android:textAllCaps="false"
+        android:textColor="@color/color_white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/countFiftyFifty"

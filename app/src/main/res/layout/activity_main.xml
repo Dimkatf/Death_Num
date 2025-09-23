@@ -9,7 +9,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Выбор языка (левый верхний угол) -->
     <TextView
         android:id="@+id/languageLabel"
         android:layout_width="wrap_content"

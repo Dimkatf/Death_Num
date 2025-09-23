@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -44,6 +45,9 @@ public class OnePlayerActivity extends AppCompatActivity {
     private int num5; private int num6; private int num7;
     private int num8; private int num9; private int num10;
     private int num11; private int num12;
+    private FrameLayout centerPlusOneContainer;
+    private TextView centerPlusOneText;
+    private Animation rotateInAnimation, fadeOutAnimation;
 
     Time time = new Time();
     Button card1;Button card2;Button card3;
@@ -78,6 +82,12 @@ public class OnePlayerActivity extends AppCompatActivity {
         dbManager.open();
 
         dbManager.incrementModeCount(DatabaseConstants.MODE_ONE_PLAYER);
+
+        rotateInAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_in);
+        fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+
+        centerPlusOneContainer = findViewById(R.id.centerPlusOneContainer);
+        centerPlusOneText = findViewById(R.id.centerPlusOneText);
 
         Button exit = findViewById(R.id.exitOnePl);
         exit.setOnClickListener(v -> finish());
@@ -297,6 +307,7 @@ public class OnePlayerActivity extends AppCompatActivity {
             if (num != deathNum) {
                 count += 1;
                 countTextview.setText(getString(R.string.Points) + " " + count);
+                showCenterPlusOneAnimation();
                 setAllCardsEnabled(true);
             } else {
                 loseScreen();
@@ -365,5 +376,27 @@ public class OnePlayerActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         dbManager.close();
+    }
+
+    private void showCenterPlusOneAnimation() {
+        setAllCardsEnabled(false);
+        centerPlusOneContainer.setVisibility(View.VISIBLE);
+        centerPlusOneText.setAlpha(1.0f);
+        centerPlusOneText.setVisibility(View.VISIBLE);
+        centerPlusOneText.clearAnimation();
+        centerPlusOneText.startAnimation(rotateInAnimation);
+
+        new Handler().postDelayed(() -> {
+            new Handler().postDelayed(() -> {
+                centerPlusOneText.startAnimation(fadeOutAnimation);
+
+                new Handler().postDelayed(() -> {
+                    centerPlusOneContainer.setVisibility(View.INVISIBLE);
+                    centerPlusOneText.clearAnimation();
+
+                    setAllCardsEnabled(true);
+                }, 500);
+            }, 2000);
+        }, 900);
     }
 }

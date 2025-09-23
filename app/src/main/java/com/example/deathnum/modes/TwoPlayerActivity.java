@@ -1,14 +1,20 @@
 package com.example.deathnum.modes;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +32,7 @@ import com.example.deathnum.database.StatsDatabaseManager;
 
 import java.util.ArrayList;
 import java.util.Random;
+import android.view.WindowManager;
 
 public class TwoPlayerActivity extends AppCompatActivity {
     StatsDatabaseManager dbManager;
@@ -36,7 +43,16 @@ public class TwoPlayerActivity extends AppCompatActivity {
     private TextView countTextviewTwo1;
     private ArrayList<Integer> numsTwoPl1 = new ArrayList<>();
     Time time = new Time();
+    private RelativeLayout deathNumberOverlay;
+    private TextView deathNumberText;
 
+    private Animation slideUpAnimation, slideDownAnimation, pulseAnimation;
+    private FrameLayout centerPlusOneContainer;
+    private TextView centerPlusOneText;
+    private Animation rotateInAnimation, fadeOutAnimation;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +64,14 @@ public class TwoPlayerActivity extends AppCompatActivity {
             return insets;
         });
 
+        slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
+        slideDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_down);
+        pulseAnimation = AnimationUtils.loadAnimation(this, R.anim.text_pulse);
+
+
+        deathNumberOverlay = findViewById(R.id.deathNumberOverlay);
+        deathNumberText = findViewById(R.id.deathNumberText);
+
         dbManager = new StatsDatabaseManager(this);
         dbManager.open();
         dbManager.incrementModeCount(DatabaseConstants.MODE_TWO_PLAYERS);
@@ -55,9 +79,14 @@ public class TwoPlayerActivity extends AppCompatActivity {
         deathNumTextTwo1 = findViewById(R.id.deathNumTextTwoPlayers1);
         countTextviewTwo1 = findViewById(R.id.countTwo1);
 
+        rotateInAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_in);
+        fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+
+        centerPlusOneContainer = findViewById(R.id.centerPlusOneContainer);
+        centerPlusOneText = findViewById(R.id.centerPlusOneText);
+
         countTwo1 = 0;
         countTextviewTwo1.setText(getString(R.string.Points) + " " + countTwo1);
-        showNumberInputDialog();
         Button exit = findViewById(R.id.exitTwoPl1);
         exit.setOnClickListener(v -> finish());
 
@@ -214,6 +243,8 @@ public class TwoPlayerActivity extends AppCompatActivity {
                 card12.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
             });
         });
+
+        showNumberInputDialog();
     }
 
     private void showNumberInputDialog() {
@@ -236,6 +267,7 @@ public class TwoPlayerActivity extends AppCompatActivity {
                     if (death_num1 >= 1 && death_num1 <= 12) {
                         deathNumTextTwo1.setText(getString(R.string.deathnum) + " " + death_num1);
                         dialog.dismiss();
+                        showDeathNumberAnimation(death_num1);
                     } else {
                         if(App.getLanguage().equals("en"))
                          Toast.makeText(TwoPlayerActivity.this,
@@ -299,6 +331,7 @@ public class TwoPlayerActivity extends AppCompatActivity {
             if (num != death_num1) {
                 countTwo1 += 1;
                 countTextviewTwo1.setText(getString(R.string.Points)+ countTwo1);
+                showCenterPlusOneAnimation();
             } else loseScreen();
             onDissmiss.run();
         });
@@ -318,6 +351,55 @@ public class TwoPlayerActivity extends AppCompatActivity {
     protected void onDestroy(){
         super.onDestroy();
         dbManager.close();
+    }
+
+    private void showDeathNumberAnimation(int deathNumber) {
+
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        );
+
+        deathNumberText.setText("DEATH NUM: " + deathNumber);
+
+        deathNumberOverlay.setVisibility(View.VISIBLE);
+        deathNumberText.setVisibility(View.VISIBLE);
+
+        deathNumberOverlay.startAnimation(slideUpAnimation);
+        deathNumberText.startAnimation(pulseAnimation);
+
+        new Handler().postDelayed(() -> {
+            deathNumberOverlay.startAnimation(slideDownAnimation);
+            deathNumberOverlay.postDelayed(() -> {
+                deathNumberOverlay.setVisibility(View.GONE);
+                deathNumberText.clearAnimation();
+
+
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            }, 800);
+        }, 3000);
+    }
+
+    private void showCenterPlusOneAnimation() {
+        //setAllCardsEnabled(false);
+        centerPlusOneContainer.setVisibility(View.VISIBLE);
+        centerPlusOneText.setAlpha(1.0f);
+        centerPlusOneText.setVisibility(View.VISIBLE);
+        centerPlusOneText.clearAnimation();
+        centerPlusOneText.startAnimation(rotateInAnimation);
+
+        new Handler().postDelayed(() -> {
+            new Handler().postDelayed(() -> {
+                centerPlusOneText.startAnimation(fadeOutAnimation);
+
+                new Handler().postDelayed(() -> {
+                    centerPlusOneContainer.setVisibility(View.INVISIBLE);
+                    centerPlusOneText.clearAnimation();
+
+                   // setAllCardsEnabled(true);
+                }, 500);
+            }, 2000);
+        }, 900);
     }
 
 }

@@ -38,7 +38,7 @@ public class FiftyFiftyGame extends BaseActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button exit = findViewById(R.id.exitFiftyfifty);
+        Button exit = findViewById(R.id.exitfiftyfifty);
         exit.setOnClickListener(v -> finish());
         countFifty = 0;
         TextView countfiftyTextView = findViewById(R.id.countFiftyFifty);

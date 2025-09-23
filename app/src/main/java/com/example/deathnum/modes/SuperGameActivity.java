@@ -263,7 +263,6 @@ public class SuperGameActivity extends AppCompatActivity {
     }
 
     private void showRound() {
-        // Блокируем взаимодействие во время анимации
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
