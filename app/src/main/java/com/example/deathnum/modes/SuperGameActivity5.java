@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -42,6 +43,10 @@ public class SuperGameActivity5 extends AppCompatActivity {
     private RelativeLayout roundOverlay;
     private TextView roundNumberText;
     private Animation slideUpAnimation, slideDownAnimation, pulseAnimation;
+
+    private FrameLayout centerPlusOneContainer;
+    private TextView centerPlusOneText;
+    private Animation rotateInAnimation, fadeOutAnimation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,12 @@ public class SuperGameActivity5 extends AppCompatActivity {
         slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
         slideDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_down);
         pulseAnimation = AnimationUtils.loadAnimation(this, R.anim.text_pulse);
+
+        centerPlusOneContainer = findViewById(R.id.centerPlusOneContainer);
+        centerPlusOneText = findViewById(R.id.centerPlusOneText);
+
+        rotateInAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_in);
+        fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 
         roundOverlay = findViewById(R.id.roundforsuper);
         roundNumberText = findViewById(R.id.roundText);
@@ -121,6 +132,7 @@ public class SuperGameActivity5 extends AppCompatActivity {
         if(numSuper5 != deathNumSuper5) {
             app.setGlobalcount(app.getGlobalcount() + POINTS);
             countTextSuper5.setText(getString(R.string.Points) + " " + app.getGlobalcount());
+            showCenterPlusOneAnimation();
         }
         else {
             app.setGlobalcount(0);
@@ -130,7 +142,6 @@ public class SuperGameActivity5 extends AppCompatActivity {
         }
     }
     private void showRound() {
-        // Блокируем взаимодействие во время анимации
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
@@ -153,6 +164,33 @@ public class SuperGameActivity5 extends AppCompatActivity {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
             }, 800);
         }, 3000);
+    }
+
+    private void showCenterPlusOneAnimation() {
+        //setAllCardsEnabled(false);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        );
+        centerPlusOneContainer.setVisibility(View.VISIBLE);
+        centerPlusOneText.setText("+5");
+        centerPlusOneText.setAlpha(1.0f);
+        centerPlusOneText.setVisibility(View.VISIBLE);
+        centerPlusOneText.clearAnimation();
+        centerPlusOneText.startAnimation(rotateInAnimation);
+
+        new Handler().postDelayed(() -> {
+            new Handler().postDelayed(() -> {
+                centerPlusOneText.startAnimation(fadeOutAnimation);
+
+                new Handler().postDelayed(() -> {
+                    centerPlusOneContainer.setVisibility(View.INVISIBLE);
+                    centerPlusOneText.clearAnimation();
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    //setAllCardsEnabled(true);
+                }, 500);
+            }, 2000);
+        }, 900);
     }
 
 }

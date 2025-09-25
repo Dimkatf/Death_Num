@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -43,6 +44,10 @@ public class SuperGameActivity2 extends AppCompatActivity {
     private RelativeLayout roundOverlay;
     private TextView roundNumberText;
     private Animation slideUpAnimation, slideDownAnimation, pulseAnimation;
+
+    private FrameLayout centerPlusOneContainer;
+    private TextView centerPlusOneText;
+    private Animation rotateInAnimation, fadeOutAnimation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,12 @@ public class SuperGameActivity2 extends AppCompatActivity {
         roundOverlay = findViewById(R.id.roundforsuper);
         roundNumberText = findViewById(R.id.roundText);
 
+        centerPlusOneContainer = findViewById(R.id.centerPlusOneContainer);
+        centerPlusOneText = findViewById(R.id.centerPlusOneText);
+
+        rotateInAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate_in);
+        fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+
         dbManager = new StatsDatabaseManager(this);
         dbManager.open();
         deathNumSuper2 = random.nextInt(COUNT_CARDS)+1;
@@ -76,7 +87,7 @@ public class SuperGameActivity2 extends AppCompatActivity {
         App app = (App) getApplication();
 
         deathNumText2 = findViewById(R.id.deathNumTextforSuper2);
-        deathNumText2.setText(getString(R.string.deathnum) + " " + app.getGlobalcount());
+        deathNumText2.setText(getString(R.string.deathnum) + " " + deathNumSuper2);
 
 
         countTextSuper2 = findViewById(R.id.countSuper2);
@@ -208,6 +219,7 @@ public class SuperGameActivity2 extends AppCompatActivity {
         if(numSuper1 != deathNumSuper2) {
             app.setGlobalcount(app.getGlobalcount() + POINTS);
             countTextSuper2.setText(getString(R.string.Points) + " " + app.getGlobalcount());
+            showCenterPlusOneAnimation();
         }
         else {
             app.setGlobalcount(0);
@@ -223,7 +235,6 @@ public class SuperGameActivity2 extends AppCompatActivity {
         }
     }
     private void showRound() {
-        // Блокируем взаимодействие во время анимации
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
@@ -247,6 +258,33 @@ public class SuperGameActivity2 extends AppCompatActivity {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
             }, 800);
         }, 3000);
+    }
+
+    private void showCenterPlusOneAnimation() {
+        //setAllCardsEnabled(false);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        );
+        centerPlusOneContainer.setVisibility(View.VISIBLE);
+        centerPlusOneText.setText("+2");
+        centerPlusOneText.setAlpha(1.0f);
+        centerPlusOneText.setVisibility(View.VISIBLE);
+        centerPlusOneText.clearAnimation();
+        centerPlusOneText.startAnimation(rotateInAnimation);
+
+        new Handler().postDelayed(() -> {
+            new Handler().postDelayed(() -> {
+                centerPlusOneText.startAnimation(fadeOutAnimation);
+
+                new Handler().postDelayed(() -> {
+                    centerPlusOneContainer.setVisibility(View.INVISIBLE);
+                    centerPlusOneText.clearAnimation();
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    //setAllCardsEnabled(true);
+                }, 500);
+            }, 2000);
+        }, 900);
     }
 }
 
